@@ -1,56 +1,59 @@
 package com.example.newmusicplayer;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
-    private ArrayList<String> mDataset;
+    private List<Data> list = Collections.emptyList();
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-    public static class MusicViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView textView;
-        public MusicViewHolder(TextView v) {
-            super(v);
-            textView = v;
-        }
+
+    public MusicAdapter(List<Data> list) {
+        this.list = list;
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public MusicAdapter(ArrayList<String> myDataset) {
-        mDataset = myDataset;
-    }
-
-    // Create new views (invoked by the layout manager)
+    @NonNull
     @Override
-    public MusicAdapter.MusicViewHolder onCreateViewHolder(ViewGroup parent,
-                                                           int viewType) {
-        // create a new view
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item, parent, false);
-        MusicViewHolder vh = new MusicViewHolder(v);
+    public MusicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.details_row, parent, false);
+        MusicViewHolder vh = new MusicViewHolder(view);
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MusicViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        holder.textView.setText(mDataset.get(position));
-
+    public void onBindViewHolder(@NonNull MusicViewHolder holder, int position) {
+        holder.songImgView.setImageBitmap(list.get(position).bmp);
+        holder.songDescView.setText(list.get(position).desc);
+        holder.songNameView.setText(list.get(position).name);
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return list.size();
     }
+
+
+    public static class MusicViewHolder extends RecyclerView.ViewHolder {
+        public TextView songNameView, songDescView;
+        public ImageView songImgView;
+
+        public MusicViewHolder(@NonNull View itemView) {
+            super(itemView);
+            songNameView = itemView.findViewById(R.id.title);
+            songDescView = itemView.findViewById(R.id.description);
+            songImgView = itemView.findViewById(R.id.imageView);
+        }
+
+    }
+
+
 }
