@@ -2,7 +2,7 @@ name: Create new pull request
 on:
   push:
     branches:
-      - 'feature'
+      - 'development'
 
 jobs:
   pull-request:
