@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar mAppBar = findViewById(R.id.my_toolbar);
         setSupportActionBar(mAppBar);
-        //getMusicFiles();
         getDataList();
 
         TabAdapter adapter = new TabAdapter(getSupportFragmentManager());
