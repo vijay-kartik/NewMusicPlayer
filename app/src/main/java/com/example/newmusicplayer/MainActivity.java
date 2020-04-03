@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
 //        //initialise the cursor with query parameters
 //        Cursor listCursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection, selection, null, null);
 //
-//        //iterate over query results to add music file name
 //        while(listCursor.moveToNext()){
 //            songs.add(listCursor.getString(0) + '|' + listCursor.getString(1).replace(".mp3"," "));
 //        }
