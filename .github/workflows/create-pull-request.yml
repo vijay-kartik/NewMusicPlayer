@@ -4,9 +4,9 @@ on:
     branches:
       - 'feature'
 
-  jobs:
-    pull-request:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: action/checkout@v2
-          name: pull-request
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v2
+        name: pull-request
