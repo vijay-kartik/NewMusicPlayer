@@ -17,7 +17,7 @@ public class RecyclerViewFragment extends Fragment {
     private RecyclerView fRecyclerView;
     private List<Data> songs;
     public RecyclerViewFragment() {
-        // Required empty public constructor
+
     }
 
     public RecyclerViewFragment(List<Data> songList) {
