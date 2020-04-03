@@ -1,17 +1,27 @@
-name: Create new pull request
+name: automerge
 on:
-  push:
-    branches:
-      - 'feature'
-
+  pull_request:
+    types:
+      - labeled
+      - unlabeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
+  pull_request_review:
+    types:
+      - submitted
+  check_suite:
+    types:
+      - completed
+  status: {}
 jobs:
-  pull-request:
+  automerge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: pull-request
-        uses: repo-sync/pull-request@v2
-        with:
-          source_branch: "feature"
-          destination_branch: "development"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: automerge
+        uses: "pascalgn/automerge-action@135f0bdb927d9807b5446f7ca9ecc2c51de03c4a"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
