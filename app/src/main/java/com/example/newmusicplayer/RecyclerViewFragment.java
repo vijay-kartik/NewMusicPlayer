@@ -40,7 +40,6 @@ public class RecyclerViewFragment extends Fragment {
 
         MusicAdapter adapter = new MusicAdapter(songs);
         fRecyclerView.setAdapter(adapter);
-        // Inflate the layout for this fragment
         return view;
     }
 }
