@@ -7,12 +7,16 @@ on:
 
 
 jobs:
-  test:
-    -name: Run UI test
-     runs-on: ubuntu-latest
-     uses: vgaidarji/android-github-actions-emulator@v1.0.1
-    -name: Setup to Run Unit tests
-     steps:
+  testui:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: vgaidarji/android-github-actions-emulator@v1.0.1
+
+  testlocal:
+    runs-on: ubuntu-latest
+    name: Run Unit test
+
+    steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
