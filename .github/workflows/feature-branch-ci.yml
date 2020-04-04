@@ -11,7 +11,6 @@ jobs:
     -name: Run UI test
      runs-on: ubuntu-latest
      uses: vgaidarji/android-github-actions-emulator@v1.0.1
-    -name: Setup to Run Unit tests
      steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
