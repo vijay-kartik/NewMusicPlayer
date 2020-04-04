@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         TabAdapter adapter = new TabAdapter(getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.pager);
         TabLayout tabLayout = findViewById(R.id.tabs);
-        //hello hello
+        //hello hello hello
         adapter.addFragment(new ListFragment(songs), "List 1");
         adapter.addFragment(new RecyclerViewFragment(songs), "List2");
 
